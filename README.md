@@ -8,6 +8,11 @@ A non-intrusive & lightweight minigame for matching keys. This was created in th
 
 Will expand based on suggested features.
 
+## Showcase
+<img src="https://github.com/user-attachments/assets/7afdc9a4-9279-4aab-959b-bf8e65e45961" style="width: 100%; height: auto;">
+<img src="https://github.com/user-attachments/assets/130a2156-ac6e-4c32-b3d2-bad39ac7617b" style="width: 100%; height: auto;">
+
+
 ## Links
 
 -   [Documentation](https://docs.zykeresources.com/free-resources/key-minigame)
