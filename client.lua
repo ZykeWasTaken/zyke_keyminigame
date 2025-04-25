@@ -93,7 +93,7 @@ function StartNonIntrusive(keyCount, timeLimit)
 
 	keys = tempKeys
 
-	SetNuiFocus(true, true)
+	SetNuiFocus(true, false)
 	SetNuiFocusKeepInput(true)
 	SendNUIMessage({
 		event = "Start",
