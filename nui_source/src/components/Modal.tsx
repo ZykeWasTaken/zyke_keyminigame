@@ -5,9 +5,15 @@ interface ModalProps {
     children: React.ReactNode;
     active: boolean;
     focused: boolean;
+    nonIntrusive?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, active, focused }) => {
+const Modal: React.FC<ModalProps> = ({
+    children,
+    active,
+    focused,
+    nonIntrusive,
+}) => {
     return (
         <>
             <AnimatePresence>
@@ -66,7 +72,7 @@ const Modal: React.FC<ModalProps> = ({ children, active, focused }) => {
                                 boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.3)",
                                 border: "1px solid rgba(var(--grey4), 1.0)",
                                 padding: "1rem",
-                                opacity: focused ? 0.97 : 0.8,
+                                opacity: focused || nonIntrusive ? 0.97 : 0.8,
 
                                 position: "absolute",
                                 top: focused ? "50%" : "1rem",

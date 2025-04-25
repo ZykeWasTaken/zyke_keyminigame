@@ -8,6 +8,7 @@ interface PressKeysProps {
     keyIdx: number;
     setKeyIdx: (val: number) => void;
     setActive: (val: boolean) => void;
+    nonIntrusive: boolean;
 }
 
 const PressKeys: React.FC<PressKeysProps> = ({
@@ -15,9 +16,14 @@ const PressKeys: React.FC<PressKeysProps> = ({
     keyIdx,
     setKeyIdx,
     setActive,
+    nonIntrusive,
 }) => {
     const handleKeyPress = (event: KeyboardEvent) => {
         const key = event.key.toUpperCase();
+        if (nonIntrusive) {
+            if (!key.startsWith("ARROW")) return;
+        }
+
         if (key === "ALT") return; // Focus key, ignore it
         if (key === "ESCAPE") return; // Cancel key, ignore it
 
