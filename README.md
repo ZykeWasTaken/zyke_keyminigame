@@ -4,7 +4,7 @@
 
 # Information
 
-A non-intrusive & lightweight minigame for matching keys. This was created in the spirits of needing a minigame that does not automatically limit gameplay & requires a focus toggle, along with wanting something fresh.
+A semi-intrusive & lightweight minigame for matching keys. This was created in the spirits of needing a minigame that does not automatically limit gameplay & requires a focus toggle, along with wanting something fresh.
 
 Will expand based on suggested features.
 
