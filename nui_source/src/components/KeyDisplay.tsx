@@ -1,6 +1,7 @@
 import React from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import { AnimatePresence, motion } from "framer-motion";
+import TranslateArrowKey from "./TranslateArrowKey";
 
 interface KeyDisplayProps {
     _key: string;
@@ -78,16 +79,36 @@ const KeyDisplay: React.FC<KeyDisplayProps> = ({
                             duration: 0.2,
                         }}
                     >
-                        <p
-                            style={{
-                                fontSize: "2rem",
-                                color: "rgba(var(--blue2))",
-                                fontWeight: "500",
-                                textAlign: "center",
-                            }}
-                        >
-                            {_key}
-                        </p>
+                        {_key.startsWith("ARROW") ? (
+                            <TranslateArrowKey
+                                _key={
+                                    _key as
+                                        | "ARROWUP"
+                                        | "ARROWDOWN"
+                                        | "ARROWLEFT"
+                                        | "ARROWRIGHT"
+                                }
+                                props={{
+                                    style: {
+                                        fontSize: "2rem",
+                                        color: "rgba(var(--blue2))",
+                                        fontWeight: "500",
+                                        textAlign: "center",
+                                    },
+                                }}
+                            />
+                        ) : (
+                            <p
+                                style={{
+                                    fontSize: "2rem",
+                                    color: "rgba(var(--blue2))",
+                                    fontWeight: "500",
+                                    textAlign: "center",
+                                }}
+                            >
+                                {_key}
+                            </p>
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
