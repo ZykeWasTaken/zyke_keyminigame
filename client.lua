@@ -68,8 +68,34 @@ end
 
 exports("IsActive", IsActive)
 
--- This is the only zyke_lib dependency, you could switch it out if you want to make it standalone
-Z.registerKey("zyke_keyminigame:focusToggle", "LMENU", "DO NOT CHANGE", function()
+-- Pasted in from zyke_lib to remove a forced dependency for one simple feature
+---@param id string
+---@param key string
+---@param description string
+---@param onPress function?
+---@param onRelease function?
+---@param keyType string? @keyboard, mouse_button
+local function registerKey(id, key, description, onPress, onRelease, keyType)
+    RegisterKeyMapping("+" .. id, description, keyType or "keyboard", key)
+
+    RegisterCommand("+" .. id, function()
+        if (onPress) then onPress() end
+    end, false)
+
+    RegisterCommand("-" .. id, function()
+        if (onRelease) then onRelease() end
+    end, false)
+
+    -- Removing from chat, as they can be seen with + & - as prefix along with the id
+    CreateThread(function()
+        Wait(1000)
+
+        TriggerEvent("chat:removeSuggestion", "/+" .. id)
+        TriggerEvent("chat:removeSuggestion", "/-" .. id)
+    end)
+end
+
+registerKey("zyke_keyminigame:focusToggle", "LMENU", "DO NOT CHANGE", function()
 	if (not _promise) then return end
 
 	SendNUIMessage({event = "SetFocus", data = true})

@@ -5,7 +5,6 @@ game "gta5"
 lua54 "yes"
 author "discord.gg/zykeresources"
 
-shared_script "@zyke_lib/imports.lua" -- Only used for registerKey
 client_script "client.lua"
 
 ui_page "nui/index.html"
